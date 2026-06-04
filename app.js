@@ -393,23 +393,60 @@ function renderWishlistPage() {
     });
 }
 
+/* ============================================
+   SKELETON LOADING + CARD REVEAL
+   ============================================ */
+
+/**
+ * Hides all .skeleton-card elements and reveals .product-card--hidden cards.
+ * Called after window load (or a min display timeout, whichever is later).
+ */
+function dismissSkeletons() {
+    // Hide all skeleton placeholders
+    document.querySelectorAll('.skeleton-card').forEach(el => {
+        el.classList.add('skeleton-hidden');
+        el.setAttribute('aria-hidden', 'true');
+    });
+    // Reveal the real product cards with a fade-in
+    document.querySelectorAll('.product-card--hidden').forEach(el => {
+        el.classList.remove('product-card--hidden');
+    });
+    // Now wire up cart/wishlist interactions (needs visible cards)
+    setupProductCards();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     updateCartBadge();
     updateWishlistBadge();
-    setupProductCards();
+    // Pages WITHOUT skeleton (cart, wishlist, etc.) — setup immediately
+    if (!document.querySelector('.skeleton-card')) {
+        setupProductCards();
+    }
     renderCartPage();
     renderWishlistPage();
 });
 
+// Guarantee skeleton shows for at least 1500ms so it's noticeable
+const SKELETON_MIN_MS = 1500;
+const skeletonStart = Date.now();
+
+window.addEventListener('load', () => {
+    if (!document.querySelector('.skeleton-card')) return;
+    const elapsed = Date.now() - skeletonStart;
+    const delay = Math.max(0, SKELETON_MIN_MS - elapsed);
+    setTimeout(dismissSkeletons, delay);
+});
+
+
 function setupProductCards() {
     const productCards = document.querySelectorAll('.product-card');
-    productCards.forEach((card, index) => {
+    productCards.forEach((card) => {
         const titleElement = card.querySelector('h6');
         const priceElement = card.querySelector('.price');
         const imgElement = card.querySelector('img');
         const categoryElement = card.querySelector('small');
-        const cartBtn = card.querySelector('.btn');
-        const favBtn = card.querySelector('.favorite-icon');
+        const cartBtn = card.querySelector('[data-cart-btn]') || card.querySelector('.btn');
+        const favBtn = card.querySelector('[data-wishlist-btn]') || card.querySelector('.favorite-icon');
 
         if (!titleElement || !priceElement) return;
 
@@ -424,29 +461,44 @@ function setupProductCards() {
         if (cartBtn) {
             cartBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                addToCart(product);
-                alert(`${product.name} added to cart!`);
+                if (cartBtn.classList.contains('btn-loading')) return;
+                // Show spinner
+                const origText = cartBtn.innerText;
+                cartBtn.classList.add('btn-loading');
+                cartBtn.innerText = 'Adding...';
+                setTimeout(() => {
+                    addToCart(product);
+                    cartBtn.innerText = '✓ Added!';
+                    cartBtn.classList.remove('btn-loading');
+                    setTimeout(() => {
+                        cartBtn.innerText = origText;
+                    }, 1000);
+                }, 600);
             });
         }
 
         if (favBtn) {
             favBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                toggleWishlist(product);
-                const icon = favBtn.querySelector('i');
-                if (icon) {
-                    if (icon.classList.contains('fa-regular')) {
-                        icon.classList.remove('fa-regular');
-                        icon.classList.add('fa-solid');
-                        icon.style.color = '#ff0055';
-                        alert(`${product.name} added to wishlist!`);
-                    } else {
-                        icon.classList.remove('fa-solid');
-                        icon.classList.add('fa-regular');
-                        icon.style.color = '';
-                        alert(`${product.name} removed from wishlist!`);
+                if (favBtn.classList.contains('fav-loading')) return;
+                // Show spin
+                favBtn.classList.add('fav-loading');
+                setTimeout(() => {
+                    favBtn.classList.remove('fav-loading');
+                    toggleWishlist(product);
+                    const icon = favBtn.querySelector('i');
+                    if (icon) {
+                        if (icon.classList.contains('fa-regular')) {
+                            icon.classList.remove('fa-regular');
+                            icon.classList.add('fa-solid');
+                            icon.style.color = '#ff0055';
+                        } else {
+                            icon.classList.remove('fa-solid');
+                            icon.classList.add('fa-regular');
+                            icon.style.color = '';
+                        }
                     }
-                }
+                }, 500);
             });
 
             const isInWishlist = getWishlist().some(item => item.id === product.id);
