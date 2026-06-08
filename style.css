@@ -16,6 +16,10 @@ html{
     --gray: #f4f4f4;
     --golden-hour: #f1b555;
     --antique-brown: #9b281a;
+    --neon-cyan: #00ffff;
+    --neon-pink: #ff0055;
+    --neon-glow: 0 0 10px rgba(0, 255, 255, 0.5);
+    --neon-glow-pink: 0 0 10px rgba(255, 0, 85, 0.5);
 }
 
 /* BASIC STYLING */
