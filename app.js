@@ -163,7 +163,7 @@ function renderCartPage() {
         card.classList.add('cart-item-card');
         card.innerHTML = `
             <div class="cart-item-image">
-                <img src="${item.image}" alt="${item.name}">
+                <img src="${item.image}" alt="${item.name}" width="100" height="100" loading="lazy">
             </div>
             <div class="cart-item-details">
                 <p class="cart-item-category">${item.category || 'Furniture'}</p>
