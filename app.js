@@ -8,6 +8,9 @@ if (menuBtn && navList) {
         navList.classList.add('navList-active');
         navList.setAttribute('aria-hidden', 'false');
         menuBtn.setAttribute('aria-expanded', 'true');
+        setTimeout(() => {
+            if (navClose) navClose.focus();
+        }, 100);
     });
 }
 
@@ -28,6 +31,28 @@ document.addEventListener('keydown', (e) => {
         if (menuBtn) menuBtn.focus();
     }
 });
+
+if (navList) {
+    navList.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+        const focusableElements = navList.querySelectorAll('a, button');
+        if (focusableElements.length === 0) return;
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) { // Shift + Tab
+            if (document.activeElement === firstElement) {
+                lastElement.focus();
+                e.preventDefault();
+            }
+        } else { // Tab
+            if (document.activeElement === lastElement) {
+                firstElement.focus();
+                e.preventDefault();
+            }
+        }
+    });
+}
 
 const CART_KEY = 'furnix_shopping_cart';
 const WISHLIST_KEY = 'furnix_wishlist';
