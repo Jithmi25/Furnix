@@ -596,3 +596,19 @@ window.addEventListener('storage', (e) => {
         renderWishlistPage();
     }
 });
+/* ---- PRODUCT SOCIAL SHARE SYSTEM ---- */
+function shareProduct(title, urlEnding) {
+    const fullUrl = window.location.origin + '/' + urlEnding;
+    
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            text: `Check out the ${title} on Furnix!`,
+            url: fullUrl
+        }).catch(err => console.log('Error sharing:', err));
+    } else {
+        navigator.clipboard.writeText(fullUrl).then(() => {
+            alert(`${title} link copied to clipboard!`);
+        }).catch(err => console.error('Could not copy link:', err));
+    }
+}
