@@ -612,3 +612,18 @@ function shareProduct(title, urlEnding) {
         }).catch(err => console.error('Could not copy link:', err));
     }
 }
+let topBtn = document.getElementById("topBtn");
+
+// show button when scrolling
+window.onscroll = function () {
+  if (document.documentElement.scrollTop > 100) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+};
+
+// scroll to top function
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}

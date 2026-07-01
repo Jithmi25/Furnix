@@ -1980,3 +1980,20 @@ small {
     display: inline-block;
     animation: btn-spin 0.6s linear infinite;
 }
+#topBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  font-size: 18px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#topBtn:hover {
+  background-color: gray;
+}
