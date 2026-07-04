@@ -446,7 +446,10 @@ function renderWishlistPage() {
       const item = getWishlist().find((i) => i.id === btn.dataset.id);
       if (!item) return;
       addToCart({ ...item });
+      saveWishlist(getWishlist().filter((i) => i.id !== btn.dataset.id));
       alert(`${item.name} moved to cart!`);
+      updateWishlistBadge();
+      renderWishlistPage();
       updateCartBadge();
     });
   });
