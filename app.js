@@ -626,5 +626,9 @@ window.onscroll = function () {
 
 // scroll to top function
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 }
+document.getElementById("topBtn").addEventListener("click", scrollToTop);
