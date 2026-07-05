@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Furnix</title>
+    <title>Sign Up - Furnix</title>
 
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -85,17 +85,10 @@
             border-color:#9b281a;
         }
 
-        .options{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            margin-bottom:20px;
-            font-size:0.9rem;
-        }
-
-        .options a{
-            color:#9b281a;
-            text-decoration:none;
+        .input-hint{
+            font-size: 0.78rem;
+            color: #888;
+            margin-top: 6px;
         }
 
         .login-btn{
@@ -111,6 +104,7 @@
             font-family: 'Jost', sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-top: 6px;
         }
 
         .login-btn:hover{
@@ -201,50 +195,48 @@
     <div class="login-box">
 
         <div class="logo">FURNIX.</div>
-        <p class="subtitle">Welcome Back</p>
+        <p class="subtitle">Create Your Account</p>
 
         <div id="formMessage" class="form-message"></div>
 
-        <form id="loginForm">
+        <form id="signupForm">
             <div class="input-group">
-                <label for="loginEmail">Email Address</label>
-                <input type="email" id="loginEmail" placeholder="Enter your email" required autocomplete="email">
+                <label for="signupName">Full Name</label>
+                <input type="text" id="signupName" placeholder="Enter your name" required autocomplete="name">
             </div>
 
             <div class="input-group">
-                <label for="loginPassword">Password</label>
-                <input type="password" id="loginPassword" placeholder="Enter your password" required autocomplete="current-password">
+                <label for="signupEmail">Email Address</label>
+                <input type="email" id="signupEmail" placeholder="Enter your email" required autocomplete="email">
             </div>
 
-            <div class="options">
-                <label style="display:flex; align-items:center; gap:6px;">
-                    <input type="checkbox" id="rememberMe" style="width:auto;">
-                    Remember Me
-                </label>
-                <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+            <div class="input-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" placeholder="Create a password" required autocomplete="new-password" minlength="6">
+                <p class="input-hint">At least 6 characters.</p>
             </div>
 
-            <button type="submit" class="login-btn" id="loginSubmitBtn">
-                Login
+            <button type="submit" class="login-btn" id="signupSubmitBtn">
+                Create Account
             </button>
 
             <div class="divider">or</div>
 
-            <button type="button" class="google-btn" id="googleSignInBtn">
+            <button type="button" class="google-btn" id="googleSignUpBtn">
                 <i class="fa-brands fa-google" style="color:#DB4437;"></i>
                 Continue with Google
             </button>
 
             <div class="signup">
-                Don't have an account?
-                <a href="signup.html">Sign Up</a>
+                Already have an account?
+                <a href="login.html">Login</a>
             </div>
         </form>
 
     </div>
 </div>
 
-<script type="module" src="login-auth.js"></script>
+<script type="module" src="signup-auth.js"></script>
 
 </body>
 </html>

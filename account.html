@@ -1,45 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shop Furnix modern furniture, lighting, decor, and handcrafted pieces designed for comfortable contemporary homes.">
-    <title>Furnix - Our Designers</title>
-
-    <!-- CSS LINK -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Manage your Furnix account.">
+    <title>Furnix - My Account</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- icons -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" as="style">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <style>
-        /* Small inline style to make the designer grid wrap beautifully */
-        .designers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-        /* Overriding the review card background slightly for a cleaner look */
-        .designer-card {
-            background: #fafafa;
-            border: 1px solid #eee;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-        }
-    </style>
 </head>
-
 <body>
-    <!-- HEADER PART -->
-            <header>
+    <header>
         <nav class="navbar flex between wrapper">
             <a href="index.html" class="logo">Furnix.</a>
             <ul class="navList" id="list" aria-hidden="true">
@@ -79,58 +53,30 @@
         </nav>
     </header>
 
-    <!-- MAIN CONTENT PART -->
     <main>
-        <section class="wrapper p-block">
+        <section class="wrapper p-block" style="max-width: 700px;">
             <div class="page-header-container">
-                <h2 class="h2-heading gradient-txt mt-3">Meet Our <span>Designers</span></h2>
-                <p class="detail-info-platform page-header-desc">
-                    Our award-winning pieces are born from the minds of visionary creatives. Discover the passionate individuals who blend art with everyday functionality.
-                </p>
+                <h2 class="h2-heading gradient-txt mt-3">My <span>Account</span></h2>
             </div>
 
-            <!-- Designers Grid -->
-            <div class="designers-grid">
-                
-                <div class="review-card designer-card">
-                    <div class="profile-image designer-profile-image">
-                        <img src="images/profile1.jpg" alt="John Oliver" width="320" height="479" decoding="async" loading="lazy">
-                    </div>
-                    <h5>John Oliver</h5>
-                    <small class="designer-role">HEAD OF SEATING</small>
-                    <p class="detail-info-platform designer-desc">
-                        With over a decade of experience in ergonomic design, John focuses on creating chairs and sofas that look as incredible as they feel. His philosophy is that comfort should never compromise style.
-                    </p>
-                </div>
+            <div id="accountLoading" style="text-align:center; margin-top:2rem;">
+                <p class="detail-info-platform">Loading your account...</p>
+            </div>
 
-                <div class="review-card designer-card">
-                    <div class="profile-image designer-profile-image">
-                        <img src="images/profile2.jpg" alt="Annie Lilt" width="320" height="480" decoding="async" loading="lazy">
-                    </div>
-                    <h5>Annie Lilt</h5>
-                    <small class="designer-role">LIGHTING SPECIALIST</small>
-                    <p class="detail-info-platform designer-desc">
-                        Annie brings spaces to life through illumination. Inspired by Scandinavian minimalism, her lighting fixtures are designed to cast warm, inviting ambiances in modern homes.
-                    </p>
-                </div>
+            <div id="accountDetails" style="display:none; margin-top:2rem; text-align:center;">
+                <p class="detail-info-platform"><strong>Name:</strong> <span id="accName">—</span></p>
+                <p class="detail-info-platform mt-1"><strong>Email:</strong> <span id="accEmail">—</span></p>
+                <button id="logoutBtn" class="btn brown-bg mt-3" style="margin: 2rem auto 0;">Logout</button>
+            </div>
 
-                <div class="review-card designer-card">
-                    <div class="profile-image designer-profile-image">
-                        <img src="images/profile3.jpg" alt="Frank Daniel" width="320" height="480" decoding="async" loading="lazy">
-                    </div>
-                    <h5>Frank Daniel</h5>
-                    <small class="designer-role">WOODCRAFT MASTER</small>
-                    <p class="detail-info-platform designer-desc">
-                        Frank's expertise lies in sustainably sourced timber. He designs our tables and bedroom sets with a deep respect for the natural grain, ensuring every piece is entirely unique.
-                    </p>
-                </div>
-
+            <div id="accountLoggedOut" style="display:none; margin-top:2rem; text-align:center;">
+                <p class="detail-info-platform">You're not logged in.</p>
+                <a href="login.html" class="btn btn-inline mt-3">Go to Login</a>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER PART -->
-            <footer id="contact" class="footer-image">
+    <footer id="contact" class="footer-image">
         <div class="wrapper p-block flex g-one-half">
             <div class="footer-wrapper">
                 <a href="index.html" class="logo">Furnix.</a>
@@ -181,8 +127,7 @@
             <p>&copy; 2025 copyright furnix homes. powered by <span><i>janavi pandole</i></span></p>
         </div>
     </footer>
-<button id="topBtn" onclick="scrollToTop()">↑ Top</button>
-    <script src="app.js"></script>
-    <script type="module" src="auth.js"></script>
+
+    <script type="module" src="account-auth.js"></script>
 </body>
 </html>
