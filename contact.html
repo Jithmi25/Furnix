@@ -7,6 +7,10 @@
     <title>Furnix - Contact Us</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
             <header>
@@ -31,7 +35,7 @@
             </ul>
             <ul class="nav-icons flex g-one-half">
                 <li><a href="#" class="icon" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></a></li>
-                <li><a href="#" class="icon" aria-label="Account"><i class="fa-solid fa-user" aria-hidden="true"></i></a></li>
+                <li><a href="login.html" class="icon" aria-label="Account"><i class="fa-solid fa-user" aria-hidden="true"></i></a></li>
                 <li>
                     <a href="wishlist.html" class="icon nav-icon-wrapper" aria-label="Wishlist">
                         <i class="fa-solid fa-heart" aria-hidden="true"></i>
@@ -89,27 +93,56 @@
                 <!-- Contact Form Panel -->
                 <div class="contact-form-section">
                     <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Full Name</label>
-                            <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
-                        </div>
+                       <div class="form-group">
+                    <label for="name" class="form-label">Full Name</label>
+
+                         <div class="input-wrapper">
+                        <i class="fa-solid fa-user input-icon"></i>
+
+                         <input
+                                type="text"
+                         id="name"
+                      class="form-input"
+            placeholder="Enter your full name"
+        >
+    </div>
+</div>
                         
                         <div class="form-group">
-                            <label for="email_input" class="form-label">Email Address</label>
-                            <input type="email" id="email_input" class="form-input" placeholder="Enter your email address" required>
-                        </div>
+                        <div class="input-wrapper">
+                        <i class="fa-solid fa-envelope input-icon"></i>
+
+                         <input
+                          type="email"
+        class="form-input"
+        placeholder="Enter your email"
+    >
+</div>
 
                         <div class="form-group">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" class="form-input" placeholder="What is this regarding?">
-                        </div>
+                          <div class="input-wrapper">
+    <i class="fa-solid fa-pen input-icon"></i>
+
+    <input
+        type="text"
+        class="form-input"
+        placeholder="Subject"
+    >
+</div>
 
                         <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" class="form-textarea" placeholder="Write your message here..." required></textarea>
-                        </div>
+                            <div class="input-wrapper">
+    <i class="fa-solid fa-comment input-icon"></i>
 
-                        <button type="submit" class="btn">Send Message</button>
+    <textarea
+        class="form-input"
+        placeholder="Write your message"></textarea>
+</div>
+
+                      <button type="submit" class="submit-btn">
+    <span>SEND MESSAGE</span>
+    <i class="fa-solid fa-arrow-right"></i>
+</button>
                     </form>
                 </div>
             </div>
@@ -122,7 +155,7 @@
                 <a href="index.html" class="logo">Furnix.</a>
                 <h3>sign up to receive 10% off <br> on your first order</h3>
                 <div class="input-container">
-                    <input type="email" name="email" id="email" placeholder="Enter your email.." autocomplete="off">
+                    <input type="email" name="email" id="footerEmail" placeholder="Enter your email.." autocomplete="off">
                     <a href="#" class="simple-icon" aria-label="Open details"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
                 <ul class="footer-social-icon flex">
@@ -141,9 +174,22 @@
                     <li><a href="furniture.html" class="footer-link">Accessories</a></li>
                 </ul>
                 <ul class="footer-contact-details">
-                    <li class="contact"><a href="tel:+91123456789" class="footer-link">+91 123 456 789</a></li>
-                    <li class="contact"><a href="mailto:Furnixhome@info.com" class="footer-link">Furnixhome@info.com</a></li>
-                </ul>
+
+    <li class="contact">
+        <a href="tel:+91123456789" class="footer-link">
+            <i class="fa-solid fa-phone"></i>
+            <span>+91 123 456 789</span>
+        </a>
+    </li>
+
+    <li class="contact">
+        <a href="mailto:Furnixhome@info.com" class="footer-link">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Furnixhome@info.com</span>
+        </a>
+    </li>
+
+</ul>
             </div>
             <div class="footer-wrapper">
                 <h5>designers</h5>
@@ -167,6 +213,7 @@
             <p>&copy; 2025 copyright furnix homes. powered by <span><i>janavi pandole</i></span></p>
         </div>
     </footer>
+    <button id="topBtn" onclick="scrollToTop()">↑ Top</button>
     <script src="app.js"></script>
 </body>
 </html>
