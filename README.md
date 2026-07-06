@@ -3,6 +3,7 @@
 > Officially participating in
 ## ECSOC26
 ## ELUSOC 2026
+## SSOC 2026
 
 > A sleek and modern furniture shopping platform with a neon-inspired UI, built for smooth performance and elegant user experience.
 
@@ -66,7 +67,7 @@ Furnix-Neon/
 ```
 ## 🤝 Contributing
 
-Contributions are welcome! This project is open source under **SSoC 2026**.
+Contributions are welcome! This project is open source under **SSoC 2026**, **ECSOC26**, **ELUSOC**.
 
 1. Fork the repository
 2. Create your branch (`git checkout -b feat/your-feature`)
