@@ -110,58 +110,76 @@
 
                 <!-- Contact Form Panel -->
                 <div class="contact-form-section">
-                    <form action="#" method="POST">
-                       <div class="form-group">
-                    <label for="name" class="form-label">Full Name</label>
+                   <form method="POST">
 
-                         <div class="input-wrapper">
-                        <i class="fa-solid fa-user input-icon"></i>
-
-                         <input
-                                type="text"
-                         id="name"
-                      class="form-input"
-            placeholder="Enter your full name"
-        >
+    <div class="form-group">
+        <label for="name" class="form-label">Full Name</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-user input-icon" aria-hidden="true"></i>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="Enter your full name"
+                required
+                autocomplete="name"
+            >
+        </div>
     </div>
-</div>
-                        
-                        <div class="form-group">
-                        <div class="input-wrapper">
-                        <i class="fa-solid fa-envelope input-icon"></i>
 
-                         <input
-                          type="email"
-        class="form-input"
-        placeholder="Enter your email"
-    >
-</div>
+    <div class="form-group">
+        <label for="email" class="form-label">Email Address</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-envelope input-icon" aria-hidden="true"></i>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="Enter your email"
+                required
+                autocomplete="email"
+            >
+        </div>
+    </div>
 
-                        <div class="form-group">
-                          <div class="input-wrapper">
-    <i class="fa-solid fa-pen input-icon"></i>
+    <div class="form-group">
+        <label for="subject" class="form-label">Subject</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-pen input-icon" aria-hidden="true"></i>
+            <input
+                type="text"
+                id="subject"
+                name="subject"
+                class="form-input"
+                placeholder="Subject"
+                required
+            >
+        </div>
+    </div>
 
-    <input
-        type="text"
-        class="form-input"
-        placeholder="Subject"
-    >
-</div>
+    <div class="form-group">
+        <label for="message" class="form-label">Message</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-comment input-icon" aria-hidden="true"></i>
+            <textarea
+                id="message"
+                name="message"
+                class="form-input"
+                placeholder="Write your message"
+                rows="5"
+                required
+            ></textarea>
+        </div>
+    </div>
 
-                        <div class="form-group">
-                            <div class="input-wrapper">
-    <i class="fa-solid fa-comment input-icon"></i>
+    <button type="submit" class="submit-btn">
+        <span>SEND MESSAGE</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+    </button>
 
-    <textarea
-        class="form-input"
-        placeholder="Write your message"></textarea>
-</div>
-
-                      <button type="submit" class="submit-btn">
-    <span>SEND MESSAGE</span>
-    <i class="fa-solid fa-arrow-right"></i>
-</button>
-                    </form>
+</form>
                 </div>
             </div>
         </section>
