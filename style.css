@@ -457,7 +457,7 @@ h3 {
 }
 
 .category-card:nth-child(1) {
-  background-image: url(images/category1.jpg);
+  background-image: url(images/category1.webp);
 }
 
 .category-card:nth-child(1):hover {
@@ -481,19 +481,19 @@ h3 {
 }
 
 .category-card:nth-child(2) {
-  background-image: url(images/category2.jpg);
+  background-image: url(images/category2.webp);
 }
 
 .category-card:nth-child(3) {
-  background-image: url(images/category3.jpg);
+  background-image: url(images/category3.webp);
 }
 
 .category-card:nth-child(4) {
-  background-image: url(images/category4.jpg);
+  background-image: url(images/category4.webp);
 }
 
 .category-card:nth-child(5) {
-  background-image: url(images/category5.jpg);
+  background-image: url(images/category5.webp);
 }
 
 h5 {
@@ -706,7 +706,7 @@ small {
   width: 32rem;
   height: 37rem;
   border-radius: 1.5rem;
-  background-image: url(images/living-room.jpg);
+  background-image: url(images/living-room.webp);
   background-position: center;
   background-size: cover;
   transform: rotateZ(5deg);
@@ -724,7 +724,7 @@ small {
   top: 50%;
   transform: translateY(-50%) rotateZ(-10deg);
   right: 400px;
-  background-image: url(images/bedroom.jpg);
+  background-image: url(images/bedroom.webp);
   background-position: inherit;
   background-size: inherit;
 }
@@ -745,12 +745,13 @@ small {
 
 /* SECTION 05 */
 .fix-section {
-  background-image: url(images/fix-bg.jpg);
+  background-image: url(images/fix-bg.webp);
   background-repeat: no-repeat;
   position: relative;
   backdrop-filter: blur(2.6rem);
   background-attachment: scroll;
   isolation: isolate;
+  min-height: 400px;
 }
 
 .fix-section::before {
@@ -1944,7 +1945,7 @@ input:focus {
 
 /* FOOTER SECTION */
 .footer-image {
-  background-image: url(images/footer-bg.jpg);
+  background-image: url(images/footer-bg.webp);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1952,6 +1953,7 @@ input:focus {
   backdrop-filter: blur(2.6rem);
   background-attachment: scroll;
   isolation: isolate;
+  min-height:500px;
 }
 
 .footer-image::before {
