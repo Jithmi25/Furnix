@@ -1,5 +1,9 @@
 {
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
+    "express": "^5.2.1",
     "lucide-react": "^1.21.0",
     "react-loading-skeleton": "^3.5.0"
   }
