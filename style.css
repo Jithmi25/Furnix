@@ -2691,3 +2691,26 @@ span,
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
+
+
+/* Accessibility Improvements for Interactive Icons (Issue #105) */
+.icon:focus-visible, 
+.simple-icon:focus-visible, 
+.favorite-icon:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--text) !important;
+    outline-offset: 4px;
+}
+
+.icon {
+    color: var(--text);
+}
+
+.icon:hover, .icon:focus {
+    color: var(--golden-hour);
+}
+
+.favorite-icon:hover, .favorite-icon:focus {
+    color: var(--golden-hour) !important;
+}
