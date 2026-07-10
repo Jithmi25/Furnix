@@ -114,7 +114,7 @@ function addToCart(product) {
 }
 
 function removeFromCart(productId) {
-  let cart = getCart().filter((item) => item.id !== productId);
+  let cart = getCart().filter((item) => String(item.id) !== String(productId));
   saveCart(cart);
   updateCartBadge();
 }
@@ -230,7 +230,7 @@ function renderCartPage() {
       const id = btn.dataset.id;
       const action = btn.dataset.action;
       let cart = getCart();
-      const index = cart.findIndex((i) => i.id === id);
+      const index = cart.findIndex((i) => String(i.id) === String(id));
       if (index === -1) return;
       if (action === "increase") {
         cart[index].quantity = (cart[index].quantity || 1) + 1;
@@ -246,7 +246,7 @@ function renderCartPage() {
 
   listEl.querySelectorAll(".cart-remove-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      let cart = getCart().filter((i) => i.id !== btn.dataset.id);
+      let cart = getCart().filter((i) => String(i.id) !== String(btn.dataset.id));
       saveCart(cart);
       updateCartBadge(); // ✅ update badge on remove
       renderCartPage();
@@ -544,7 +544,7 @@ function renderWishlistPage() {
 
   grid.querySelectorAll(".wishlist-remove-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      let wishlist = getWishlist().filter((i) => i.id !== btn.dataset.id);
+      let wishlist = getWishlist().filter((i) => String(i.id) !== String(btn.dataset.id));
       saveWishlist(wishlist);
       updateWishlistBadge(); // ✅ update wishlist badge on remove
       renderWishlistPage();
