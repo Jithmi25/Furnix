@@ -1,7 +1,9 @@
 # 🪑 Furnix Neon — Modern Furniture E-Commerce Website
 
 > Officially participating in
+## ECSOC26
 ## ELUSOC 2026
+## SSOC 2026
 
 > A sleek and modern furniture shopping platform with a neon-inspired UI, built for smooth performance and elegant user experience.
 
@@ -31,6 +33,33 @@ It focuses on:
 - ⚡ Fast and optimized frontend performance  
 - 🎨 Neon-themed modern UI design  
 - 💾 Local storage support for cart persistence  
+
+---
+
+## 📸 Screenshots
+
+### 🔐 Login Page
+![Login Page](./images/screenshots/login.png)
+
+---
+
+### 🛍️ Collections Page
+![Collections](./images/screenshots/collections.png)
+---
+
+### 🛋️ Modern Furniture Showcase 
+![Search](./images/screenshots/furniture.png)
+---
+
+### 🛒 Shopping Cart
+![Cart](./images/screenshots/cart.png)
+
+---
+
+### ❤️ Wishlist
+
+![Wishlist](./images/screenshots/wishlist.png)
+
 
 ---
 
@@ -65,7 +94,7 @@ Furnix-Neon/
 ```
 ## 🤝 Contributing
 
-Contributions are welcome! This project is open source under **SSoC 2026**.
+Contributions are welcome! This project is open source under **SSoC 2026**, **ECSOC26**, **ELUSOC**.
 
 1. Fork the repository
 2. Create your branch (`git checkout -b feat/your-feature`)

@@ -531,6 +531,11 @@ del {
 .product-card {
     flex: 1;
     flex-basis: 250px;
+    text-align: center;
+}
+
+.product-card > div:not(.product-image) {
+    padding: 0 1.2rem 1.2rem 1.2rem;
 }
 
 .product-image {
@@ -1539,10 +1544,13 @@ small {
     padding-left: 1.5rem;
     padding-right: .3rem;
     display: flex;
+    align-items: center;
 }
 
 .input-container a {
     background-color: var(--golden-hour);
+    width: 2.1rem;
+    line-height: 2.1rem;
 }
 
 .input-container input[type="email"] {

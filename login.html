@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
     <style>
         *{
@@ -25,6 +26,7 @@
             url("images/hero-image.jpg");
             background-size:cover;
             background-position:center;
+            padding-top: 0;
         }
 
         .login-container{
@@ -36,8 +38,9 @@
         }
 
         .login-box{
+            color: var(--text);
             width:420px;
-            background:rgba(255,255,255,0.95);
+            background: var(--card);
             backdrop-filter:blur(10px);
             border-radius:16px;
             padding:40px;
@@ -49,12 +52,13 @@
             font-size:2rem;
             font-weight:700;
             margin-bottom:10px;
-            color:#000;
+            color: var(--text);
+            text-transform: uppercase;
         }
 
         .subtitle{
             text-align:center;
-            color:#666;
+            color: var(--text-muted);
             margin-bottom:30px;
         }
 
@@ -71,14 +75,21 @@
         .input-group input{
             width:100%;
             padding:14px;
-            border:1px solid #ddd;
+            border:1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
             border-radius:8px;
             outline:none;
             transition:0.3s;
+            font-family: 'Jost', sans-serif;
+            border-radius:8px;
+            outline:none;
+            transition:0.3s;
+            font-family: 'Jost', sans-serif;
         }
 
         .input-group input:focus{
-            border-color:#c87b3c;
+            border-color:#9b281a;
         }
 
         .options{
@@ -90,7 +101,7 @@
         }
 
         .options a{
-            color:#c87b3c;
+            color:#9b281a;
             text-decoration:none;
         }
 
@@ -99,15 +110,61 @@
             padding:14px;
             border:none;
             border-radius:8px;
-            background:#c87b3c;
+            background:#9b281a;
             color:white;
             font-size:1rem;
             cursor:pointer;
             transition:0.3s;
+            font-family: 'Jost', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .login-btn:hover{
-            background:#a85f26;
+            background:#7a1f14;
+        }
+
+        .login-btn:disabled{
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .divider{
+            display:flex;
+            align-items:center;
+            gap: 12px;
+            margin: 22px 0;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .divider::before, .divider::after{
+            content: '';
+            flex:1;
+            height:1px;
+            background:#e0e0e0;
+        }
+
+        .google-btn{
+            width:100%;
+            padding:12px;
+            border:1px solid #ddd;
+            border-radius:8px;
+            background:#fff;
+            color:#333;
+            font-size:0.95rem;
+            cursor:pointer;
+            transition:0.3s;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:10px;
+            font-family:'Jost', sans-serif;
+        }
+
+        .google-btn:hover{
+            background:#f7f7f7;
+            border-color:#c7c7c7;
         }
 
         .signup{
@@ -117,63 +174,153 @@
         }
 
         .signup a{
-            color:#c87b3c;
+            color:#9b281a;
             text-decoration:none;
             font-weight:600;
         }
 
-        .note{
-            text-align:center;
-            margin-top:15px;
-            font-size:0.85rem;
-            color:#888;
+        .form-message{
+            display:none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            margin-bottom: 16px;
+        }
+
+        .form-message.error{
+            display:block;
+            background:#fdecea;
+            color:#9b281a;
+            border:1px solid #f3c7c1;
+        }
+
+        .form-message.success{
+            display:block;
+            background:#eaf7ea;
+            color:#256029;
+            border:1px solid #c3e6cb;
+        }
+
+        /* Dark Mode overrides */
+        [data-theme="dark"] .login-box {
+            background: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        [data-theme="dark"] .logo {
+            color: #fff;
+        }
+
+        [data-theme="dark"] .subtitle {
+            color: #bbb;
+        }
+
+        [data-theme="dark"] .input-group label {
+            color: #eee;
+        }
+
+        [data-theme="dark"] .input-group input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #444;
+            color: #fff;
+        }
+
+        [data-theme="dark"] .input-group input:focus {
+            border-color: #9b281a;
+        }
+
+        [data-theme="dark"] .options {
+            color: #ccc;
+        }
+
+        [data-theme="dark"] .divider {
+            color: #777;
+        }
+
+        [data-theme="dark"] .divider::before, [data-theme="dark"] .divider::after {
+            background: #444;
+        }
+
+        [data-theme="dark"] .google-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #444;
+            color: #eee;
+        }
+
+        [data-theme="dark"] .google-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #666;
+        }
+
+        [data-theme="dark"] .signup {
+            color: #ccc;
         }
     </style>
+
+<script>
+    (function() {
+        try {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        } catch (e) {}
+    })();
+</script>
 </head>
 <body>
 
 <div class="login-container">
     <div class="login-box">
 
-        <div class="logo">FURNIX.</div>
+        <a href="index.html" class="logo" style="display:block; text-decoration:none;">FURNIX.</a>
         <p class="subtitle">Welcome Back</p>
 
-        <form>
+        <div id="formMessage" class="form-message"></div>
+
+        <form id="loginForm">
             <div class="input-group">
-                <label>Email Address</label>
-                <input type="email" placeholder="Enter your email" required>
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email" required autocomplete="email">
             </div>
 
             <div class="input-group">
-                <label>Password</label>
-                <input type="password" placeholder="Enter your password" required>
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required autocomplete="current-password">
             </div>
 
             <div class="options">
-                <label>
-                    <input type="checkbox">
+                <label style="display:flex; align-items:center; gap:6px;">
+                    <input type="checkbox" id="rememberMe" style="width:auto;">
                     Remember Me
                 </label>
-
-                <a href="#">Forgot Password?</a>
+                <a href="#" id="forgotPasswordLink">Forgot Password?</a>
             </div>
 
-            <button type="submit" class="login-btn">
+            <button type="submit" class="login-btn" id="loginSubmitBtn">
                 Login
+            </button>
+
+            <div class="divider">or</div>
+
+            <button type="button" class="google-btn" id="googleSignInBtn">
+                <i class="fa-brands fa-google" style="color:#DB4437;"></i>
+                Continue with Google
             </button>
 
             <div class="signup">
                 Don't have an account?
-                <a href="#">Sign Up</a>
-            </div>
-
-            <div class="note">
-                Authentication functionality coming soon.
+                <a href="signup.html">Sign Up</a>
             </div>
         </form>
 
     </div>
 </div>
+
+<script type="module" src="login-auth.js"></script>
 
 </body>
 </html>
